@@ -1,8 +1,9 @@
-package com.kotlin.app
+package com.kotlin.app.demo
 
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.kotlin.app.R
 
 //https://www.runoob.com/kotlin/kotlin-tutorial.html
 class KlActivity : AppCompatActivity() {

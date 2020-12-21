@@ -1,4 +1,4 @@
-package com.kotlin.app
+package com.kotlin.app.demo
 
 class Robbo {
     var name: String = "cc";

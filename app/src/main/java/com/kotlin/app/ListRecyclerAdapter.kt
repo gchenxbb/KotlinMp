@@ -41,6 +41,5 @@ class ListRecyclerAdapter(private val appList: MutableList<String>) :
         var iv_icon = view.findViewById<ImageView>(R.id.iv_appIcon)
         var iv_name = view.findViewById<TextView>(R.id.tv_appName)
         var tv_packname = view.findViewById<TextView>(R.id.tv_appPackageName)
-
     }
 }

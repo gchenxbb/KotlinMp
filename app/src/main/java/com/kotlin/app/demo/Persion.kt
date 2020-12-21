@@ -1,7 +1,4 @@
-package com.kotlin.app
-
-import android.content.Context
-import android.widget.Toast
+package com.kotlin.app.demo
 
 open class Persion(name: String, age: Int) {
 
