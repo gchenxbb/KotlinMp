@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mList: MutableList<String>
+    private lateinit var mList: MutableList<Entity>
     private lateinit var mAdapter: ListRecyclerAdapter
     private lateinit var mRecyclerView: RecyclerView
 
@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         mList = mutableListOf()
 
         for (index in 1..20) {
-            mList.add("index:$index")
+            mList.add(Entity("name:$index", "versionName:$index"))
         }
 
 

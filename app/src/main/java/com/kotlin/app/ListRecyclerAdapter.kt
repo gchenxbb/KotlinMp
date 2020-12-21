@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ListRecyclerAdapter(private val appList: MutableList<String>) :
+class ListRecyclerAdapter(private val appList: MutableList<Entity>) :
         RecyclerView.Adapter<ListRecyclerAdapter.ListViewHolder>() {
 
     interface OnItemClickListener {
@@ -29,11 +29,13 @@ class ListRecyclerAdapter(private val appList: MutableList<String>) :
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        holder.iv_icon.setImageResource(R.drawable.ic_launcher_background)
-        holder.iv_name.text = appList[position]
-        holder.tv_packname.text = "packageName$position"
-        holder.itemView.setOnClickListener {
-            onItemClickListener?.onItemClick(position)
+        appList[position]?.run {
+            holder.iv_icon.setImageResource(R.drawable.ic_launcher_background)
+            holder.iv_name.text = name
+            holder.tv_packname.text = "packageName:$versionName"
+            holder.itemView.setOnClickListener {
+                onItemClickListener?.onItemClick(position)
+            }
         }
     }
 
