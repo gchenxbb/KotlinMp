@@ -1,15 +1,17 @@
 package com.kotlin.app
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.kotlin.app.demo.KlActivity
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mList: MutableList<Entity>
-    private lateinit var mAdapter: ListRecyclerAdapter
-    private lateinit var mRecyclerView: RecyclerView
+    private lateinit var btn_setting: Button
+    private lateinit var btn_demo: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,24 +20,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        mList = mutableListOf()
-
-        for (index in 1..20) {
-            mList.add(Entity("name:$index", "versionName:$index"))
-        }
-
-
-        mRecyclerView = findViewById(R.id.rv_lit)
-        mRecyclerView.layoutManager = LinearLayoutManager(this)
-        mAdapter = ListRecyclerAdapter(mList)
-        mRecyclerView.adapter = mAdapter
-
-        mAdapter.setOnItemClickListener(object : ListRecyclerAdapter.OnItemClickListener {
-            override fun onItemClick(position: Int) {
-
-            }
-        })
-
-
+        btn_setting = findViewById(R.id.btn_setting)
+        btn_demo = findViewById(R.id.btn_demo)
+        btn_setting.setOnClickListener { startActivity(Intent(this, SettingActivity::class.java)) }
+        btn_demo.setOnClickListener { startActivity(Intent(this, KlActivity::class.java)) }
     }
 }

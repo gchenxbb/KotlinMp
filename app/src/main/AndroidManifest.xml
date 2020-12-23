@@ -12,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
-
         <activity android:name=".SplashActivity">
 
         </activity>
@@ -24,9 +23,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".demo.KlActivity">
+        <activity android:name=".demo.KlActivity" />
+        <activity android:name=".SettingActivity" />
 
-        </activity>
     </application>
 
 </manifest>
