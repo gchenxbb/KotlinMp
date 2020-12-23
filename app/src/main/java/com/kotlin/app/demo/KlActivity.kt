@@ -8,10 +8,26 @@ import com.kotlin.app.R
 //https://www.runoob.com/kotlin/kotlin-tutorial.html
 class KlActivity : AppCompatActivity() {
 
+    var tag: String = "KlActivity"
+    var robbo: Robbo? = null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kl)
+        robbo = Robbo()
+        //let
+        let(robbo)
+        //with
+        with(robbo!!)
+        //run
+        run(robbo)
+        //apply
+        apply(robbo)
+
+
         prin("hello kotlin!");
+
 
         var age: String? = null;
         //val ages = age!!.toInt();//抛出空异常。
@@ -119,5 +135,52 @@ class KlActivity : AppCompatActivity() {
             print(x * y);
         }
 
+    }
+
+
+    fun let(robbo: Robbo?) {
+        val lo = robbo?.let {
+            print(it.name)
+            print(it.city)
+            print(it.url)
+            1000
+        }
+        Log.d(tag, "let result:$lo")
+//        print("let result:$lo")
+    }
+
+    fun with(robbo: Robbo) {
+        val lo = with(robbo) {
+            print(name)
+            print(city)
+            print(url)
+            1000
+        }
+//        print("with result:$lo")
+        Log.d(tag, "with result:$lo")
+    }
+
+
+    fun run(robbo: Robbo?) {
+        val lo = robbo?.run {
+            print(name)
+            print(city)
+            print(url)
+            1000
+        }
+        Log.d(tag, "run result:$lo")
+//        print()
+    }
+
+    fun apply(robbo: Robbo?) {
+        var lo = robbo?.apply {
+            print(name)
+            print(city)
+            print(url)
+            1000
+        }
+        Log.d(tag, "apply result:$lo")
+
+//        print("apply result:$lo")
     }
 }
