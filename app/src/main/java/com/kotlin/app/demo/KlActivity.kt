@@ -11,7 +11,6 @@ class KlActivity : AppCompatActivity() {
     var tag: String = "KlActivity"
     var robbo: Robbo? = null
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kl)
@@ -24,6 +23,27 @@ class KlActivity : AppCompatActivity() {
         run(robbo)
         //apply
         apply(robbo)
+
+        var setv = hashSetOf(1, 7, 20, 34)
+        var listv = arrayListOf(1, 2, 23, 45)
+        val mapv = hashMapOf(1 to "one", 8 to "eight", 10 to "ten")
+
+        Log.d(tag, "setv result:$setv,javaclass:${setv.javaClass}")
+        Log.d(tag, "listv result:$listv,javaclass:${listv.javaClass}")
+        Log.d(tag, "mapv result:$mapv,javaclass:${mapv.javaClass}")
+        Log.d(tag, "setv result:${setv.max()}")
+        Log.d(tag, "listv result:${listv[3]}")
+        Log.d(tag, "mapv result:${mapv[8]}")
+
+        val strs = listOf("first", "second", "third")
+        val numbers = setOf(12, 32, 3)
+        Log.d(tag, "strs result:${strs.last()}")
+        Log.d(tag, "numbers result:${numbers.max()}")
+
+        val url = "https://www.baidu.com"
+        performRequest(url, { code, content ->
+            Log.d(tag, "code:$code, content:$content")
+        })
 
 
         prin("hello kotlin!");
@@ -57,6 +77,11 @@ class KlActivity : AppCompatActivity() {
         println("age:${s.age}")
         println("no:${s.no}")
         println("scole:${s.scole}")
+    }
+
+
+    fun performRequest(url: String, callback: (code: Int, content: String) -> Unit) {
+        callback(200, "success")
     }
 
     override fun onResume() {
