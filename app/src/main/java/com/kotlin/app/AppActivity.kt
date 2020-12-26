@@ -5,35 +5,60 @@ import android.content.pm.ApplicationInfo
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.Observable
 import io.reactivex.ObservableOnSubscribe
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 class AppActivity : AppCompatActivity() {
+    val tag: String = "AppActivity"
 
+    private lateinit var appList: MutableList<ApplicationLocal>
+    private lateinit var appRecyclerAdapter: AppInfoRecyclerAdapter
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        setContentView(R.layout.activity_applist)
         loadApp()
     }
-
 
     @SuppressLint("CheckResult")
     fun loadApp() {
         Observable.create(ObservableOnSubscribe<MutableList<ApplicationLocal>> {
-            Log.d("threade", "ObservableEmitter:${Thread.currentThread().name}")
-            AppInfoUtil.init(this@AppActivity)
-            val mutableList = AppInfoUtil.getAllApplication(this@AppActivity)
-            it.onNext(mutableList)
+            val appList = AppInfoUtil.getAllApplication(this@AppActivity)
+            it.onNext(appList)
             it.onComplete()
         }).subscribeOn(Schedulers.io()).doOnSubscribe {
-            Log.d("threade", "doOnSubscribe:${Thread.currentThread().name}")
+            startLoading()
         }.doFinally {
-            Log.d("threade", "doFinally:${Thread.currentThread().name}")
+            Log.d(tag, "doFinally:${Thread.currentThread().name}")
         }.observeOn(AndroidSchedulers.mainThread()).subscribe {
-            Log.d("threade", "subscribe:${Thread.currentThread().name}")
+            Log.d(tag, "subscribe:${Thread.currentThread().name}")
+            appList = it
+            initView()
         }
     }
+
+
+    fun startLoading() {
+        Log.d(tag, "startLoading:${Thread.currentThread().name}")
+    }
+
+    private fun initView() {
+        recyclerView = findViewById(R.id.rv_appList)
+        appRecyclerAdapter = AppInfoRecyclerAdapter(appList)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = appRecyclerAdapter
+        appRecyclerAdapter.setOnItemClickListener(object : AppInfoRecyclerAdapter.OnItemClickListener {
+            override fun onItemClick(position: Int) {
+                TODO("Not yet implemented")
+            }
+        })
+
+    }
+
+
 }
