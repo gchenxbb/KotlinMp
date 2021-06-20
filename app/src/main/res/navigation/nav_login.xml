@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/view_login">
+
+    <fragment
+        android:id="@+id/view_login"
+        android:name="com.kotl.jetpack.login.LoginFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/action_to_yzt_login_fragment"
+            app:destination="@id/view_yzt_login"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/view_yzt_login"
+        android:name="com.kotl.jetpack.login.YztLoginFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_yzt_login">
+
+    </fragment>
+</navigation>
+

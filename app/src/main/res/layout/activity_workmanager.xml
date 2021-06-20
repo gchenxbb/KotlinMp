@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/workmanager_de" />
+
+    <Button
+        android:id="@+id/btnNWorker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OneTime Normal Worker"
+        android:textAllCaps="false" />
+
+    <TextView
+        android:id="@+id/tv_workmanager_info_n"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="" />
+
+    <Button
+        android:id="@+id/btnPWorker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="定时任务"
+        android:textAllCaps="false" />
+
+    <TextView
+        android:id="@+id/tv_workmanager_info_p"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="" />
+
+    <Button
+        android:id="@+id/btnCWorker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="任务链ChainWorker"
+        android:textAllCaps="false" />
+
+    <TextView
+        android:id="@+id/tv_workmanager_info_c"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="" />
+
+
+</LinearLayout>

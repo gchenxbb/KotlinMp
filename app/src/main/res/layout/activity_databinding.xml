@@ -1,0 +1,97 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.kotl.jetpack.databinding.BindBean" />
+
+        <variable
+            name="viewModel"
+            type="com.kotl.jetpack.databinding.BindViewModel" />
+
+        <variable
+            name="callback"
+            type="com.kotl.jetpack.databinding.DatabindingActivity.Callback" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/detail_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/fab_bottom_padding">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_normal"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/_btn_query"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:onClick="@{() -> callback.get()}"
+                android:text="查询输入框内容"
+                android:tint="@android:color/white" />
+
+            <EditText
+                android:id="@+id/_edit_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:gravity="center_horizontal"
+                android:text="@={viewModel.editValue}"
+                android:textSize="18sp" />
+
+
+            <Button
+                android:id="@+id/_btn_set_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:onClick="@{() -> callback.set()}"
+                android:text="设置密码"
+                android:tint="@android:color/white" />
+
+            <EditText
+                android:id="@+id/_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_horizontal"
+                android:text="@={viewModel.bindValue.phone}"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/_pwd"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:text="@={viewModel.bindValue.pwd}"
+                android:textColor="@color/app_green_500"
+                android:textIsSelectable="true" />
+
+            <Button
+                android:id="@+id/_btn_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:onClick="@{() -> callback.login()}"
+                android:text="登录 "
+                android:tint="@android:color/white" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

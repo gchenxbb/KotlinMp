@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/fragment_first">
+
+    <fragment
+        android:id="@+id/fragment_first"
+        android:name="com.kotl.jetpack.navigation.FirstNavFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_nav_one">
+
+        <action
+            android:id="@+id/action_to_second_fragment"
+            app:destination="@id/fragment_second"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_second"
+        android:name="com.kotl.jetpack.navigation.SecondNavFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_nav_two">
+        <action
+            android:id="@+id/action_to_third_fragment"
+            app:destination="@id/fragment_third"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_third"
+        android:name="com.kotl.jetpack.navigation.ThirdNavFragment"
+        android:label="@string/third_fragment_label"
+        tools:layout="@layout/fragment_nav_three" />
+</navigation>
+
