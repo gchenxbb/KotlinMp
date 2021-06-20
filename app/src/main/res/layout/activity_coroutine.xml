@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".kotlindemo.KlActivity">
+
+    <Button
+        android:id="@+id/btn_coroutine1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="runBlocking内部launch{}和挂起方法"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_coroutine2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="runBlocking 内部launch{}和coroutineScope{}"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_coroutine1" />
+
+    <Button
+        android:id="@+id/btn_coroutine3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CoroutineScope.launch"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_coroutine2" />
+
+    <Button
+        android:id="@+id/btn_coroutine4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GlobalScope.launch"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_coroutine3" />
+
+    <Button
+        android:id="@+id/btn_coroutine5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="withContext"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_coroutine4" />
+
+    <Button
+        android:id="@+id/btn_coroutine6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="async"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_coroutine5" />
+
+    <Button
+        android:id="@+id/btn_coroutine7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Flow"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_coroutine6" />
+
+    <Button
+        android:id="@+id/btn_coroutine8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="内部协程"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_coroutine7" />
+
+    <Button
+        android:id="@+id/btn_coroutine9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="runBlocking 多个launch{}"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_coroutine8" />
+
+    <Button
+        android:id="@+id/btn_coroutine10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="runBlocking内部GlobalScope.launch"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_coroutine9" />
+
+
+    <Button
+        android:id="@+id/btn_coroutine11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cancel"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_coroutine10" />
+
+    <Button
+        android:id="@+id/btn_coroutine12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="runBlocking IO线程"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_coroutine11" />
+
+    <Button
+        android:id="@+id/btn_coroutine13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="join"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_coroutine12" />
+</androidx.constraintlayout.widget.ConstraintLayout>
